@@ -1,30 +1,24 @@
-# Band Name Generator — Day 1
 
-This is Day 1 of learning Python.
+Band Name Generator — Day 1 practice.
 
-First-day practice — learning `print`, `input`, and basic logic.  
-This project is a beginner-friendly exercise that builds simple program logic and helps students who are new to programming by creating small quizzes and interactive scripts.
+Asks the user for a city and a favorite letter, then prints a suggested band name.
+def generate_band_name(city: str, letter: str) -> str:
+    """Return a cleaned, nicely formatted band name from inputs."""
+    city = city.strip()
+    letter = letter.strip()
+    if not city:
+        city = "UnknownCity"
+    if not letter:
+        letter = "X"
+    # Capitalize city words and ensure single space between parts
+    city = " ".join(word.capitalize() for word in city.split())
+    letter = letter.upper()
+    return f"{city} {letter}"
 
-## What it is
-A tiny script that asks for a couple of inputs and uses them to generate a band name (or similar short interactive outputs). Intended as a learning exercise for absolute beginners.
+def main() -> None:
+    print("Welcome to the Band Name Generator.")
+    city = input("In which city did you grow up?\n")
+    letter = input("What is your favorite letter?\n")
+    band_name = generate_band_name(city, letter)
+    print(f"Your band name is: {band_name}")
 
-## How to run
-From the project directory, run:
-```bash
-python "Band name generator day 1.py"
-```
-(Or, if you rename the file to remove spaces:)
-```bash
-python band_name_generator_day1.py
-```
-
-## Example run
-```
-Welcome to the Band Name Generator.
-Enter the city you grew up in: Tokyo
-Enter your pet's name: Kiko
-Your band name could be: Tokyo Kiko
-
-
-## License
-Add a license if you want others to reuse your code (MIT is a common choice for small learning projects).
